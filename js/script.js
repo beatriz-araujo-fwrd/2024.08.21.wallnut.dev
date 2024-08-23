@@ -84,20 +84,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
             className: "h2-container text-reveal show",
             duration: animDuration,
             onStart: () => {
-                // textEnterAnimation(container);
+                textEnterAnimation(container);
             },
             onComplete: () => {
                 // last h2 must remain visible
                 if (index < hTotalContainers - 1) {
-                    container.classList.remove("show");
-                    // textLeaveAnimation(container);
+                    textLeaveAnimation(container);
                 }
             },
             onReverseComplete: () => {
                 // first h2 must remain visible
                 if (index > 0) {
-                    container.classList.remove("show");
-                    // textLeaveAnimation(container);
+                    textLeaveAnimation(container);
                 }
             },
         }, index * hRevealAmount * 3 - animDuration / 2); // each animation position in timeline, assuming the total animation time to be 3 
