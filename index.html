@@ -1,25 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <title>Page Title</title>
-    
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
 
-    <!-- gsap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  
-  </head>
-  <body>
-    <section>
-      <div class="container">
-        
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Page Title</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+  <!-- gsap -->
+  <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+
+</head>
+
+<body>
+  <section>
+    <div class="container"></div>
+  </section>
+
+  <section class="section-timeline">
+    <div class="container">
+      <div class="heading-container">
+        <div class="h2-container-list">
+          <div class="h2-container text-reveal show">
+            <h2>High-fidelity visualization</h2>
+          </div>
+          <div class="h2-container text-reveal">
+            <h2>Heading-2 Text #2</h2>
+          </div>
+          <div class="h2-container text-reveal">
+            <h2>Another Heading-2 Text (#3)</h2>
+          </div>
+          <div class="h2-container text-reveal">
+            <h2>And Another Heading-2 Text (#4)</h2>
+          </div>
+          <div class="h2-container text-reveal">
+            <h2>...And Another One (#5)</h2>
+          </div>
+        </div>
+
+        <div class="desc-container-list">
+          <div class="desc-container text-reveal show">
+            <p>
+              With our advanced AR, VR, and Mixed Reality technology, you can explore your project in stunning detail
+              before construction begins.
+              See exactly what your finished project will look like, ensuring transparency and peace of mind.
+            </p>
+          </div>
+          <div class="desc-container text-reveal">
+            <p>
+              See exactly what your finished project will look like, ensuring transparency and peace of mind.
+            </p>
+          </div>
+          <div class="desc-container text-reveal">
+            <p>
+              With our advanced AR, VR, and Mixed Reality technology, you can explore your project in stunning detail. 
+              before construction begins.
+            </p>
+          </div>
+          <div class="desc-container text-reveal">
+            <p>
+              Another random long paragraph (except it's not that long).
+            </p>
+          </div>
+          <div class="desc-container text-reveal">
+            <p>
+              And another paragraph.
+            </p>
+          </div>
+        </div>
+
       </div>
-    </section>
-	<script src="./js/script.js"></script>
-  </body>
+
+      <div class="timeline-container">
+        <div class="timeline-el">
+          <div class="timeline-text-container">
+            <div>
+              <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6" cy="7" r="6" fill="#FDC41F" />
+              </svg>
+            </div>
+            <div class="timeline-text">
+              <svg width="68" height="14" viewBox="0 0 68 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.30675 13H0.38675V1.8H6.06675C8.35475 1.8 9.74675 3.32 9.74675 5.32C9.74675 7.576 8.17875 8.952 6.06675 8.952H2.30675V13ZM2.30675 3.528V7.224H5.97075C7.17075 7.224 7.79475 6.328 7.79475 5.32C7.79475 4.264 7.07475 3.528 5.97075 3.528H2.30675ZM12.2165 3.384C11.5285 3.384 11.0005 2.84 11.0005 2.152C11.0005 1.464 11.5285 0.936 12.2165 0.936C12.9205 0.936 13.4325 1.464 13.4325 2.152C13.4325 2.84 12.9205 3.384 12.2165 3.384ZM13.1605 13H11.2725V4.52H13.1605V13ZM19.021 13.24C16.253 13.24 14.637 11.256 14.637 8.696C14.637 5.912 16.509 4.264 18.973 4.264C21.293 4.264 22.861 5.688 23.021 7.8H21.165C20.989 6.632 20.157 5.88 18.957 5.88C17.517 5.88 16.557 6.968 16.557 8.696C16.557 10.552 17.613 11.624 19.021 11.624C20.173 11.624 20.973 10.888 21.165 9.672H23.021C22.797 11.864 21.277 13.24 19.021 13.24ZM29.1053 13H28.0173C26.1773 13 25.1853 12.088 25.1853 10.408V6.12H23.6973V4.52H25.1853V1.624H27.0733V4.52H29.2653V6.12H27.0733V10.28C27.0733 11 27.4413 11.4 28.1453 11.4H29.1053V13ZM33.6875 13.24C31.6715 13.24 30.5035 11.976 30.5035 10.136V4.52H32.3915V10.056C32.3915 11.016 33.0635 11.576 34.0715 11.576C35.3675 11.576 36.1355 10.728 36.1515 9.64V4.52H38.0395V13H36.5195L36.3755 11.768C35.8795 12.68 34.8715 13.24 33.6875 13.24ZM41.848 13H39.96V4.52H41.48L41.704 6.184C42.248 5.032 43.24 4.424 44.648 4.424H44.968V6.264H44.648C42.888 6.264 41.848 7.208 41.848 8.808V13ZM49.8956 13.24C47.3036 13.24 45.5276 11.384 45.5276 8.792C45.5276 5.992 47.3676 4.264 49.7356 4.264C52.1356 4.264 53.7356 5.944 53.7836 8.696V9.144H47.4156C47.5436 10.632 48.4716 11.64 49.9116 11.64C50.8876 11.64 51.6236 11.16 51.9116 10.312H53.7516C53.3196 12.136 51.8956 13.24 49.8956 13.24ZM47.4956 7.816H51.8316C51.5916 6.6 50.8396 5.864 49.7356 5.864C48.6156 5.864 47.7836 6.6 47.4956 7.816ZM59.6853 3.384C58.9973 3.384 58.4693 2.84 58.4693 2.152C58.4693 1.464 58.9973 0.936 59.6853 0.936C60.3893 0.936 60.9013 1.464 60.9013 2.152C60.9013 2.84 60.3893 3.384 59.6853 3.384ZM60.6293 13H58.7413V4.52H60.6293V13ZM67.4178 13H66.3298C64.4898 13 63.4978 12.088 63.4978 10.408V6.12H62.0098V4.52H63.4978V1.624H65.3858V4.52H67.5778V6.12H65.3858V10.28C65.3858 11 65.7538 11.4 66.4578 11.4H67.4178V13Z"
+                  fill="#202A30" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="img-row-container">
+        <div class="img-row-wrapper cards-list">
+          <div class="img-container">
+            <img src="./media/wallnut_img1.png">
+          </div>
+          <div class="img-container">
+            <img src="./media/wallnut_img2.png">
+          </div>
+          <div class="img-container">
+            <img src="./media/wallnut_img3.png">
+          </div>
+          <div class="img-container">
+            <img src="./media/wallnut_img4.png">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container"></div>
+  </section>
+
+  <script src="./js/script.js"></script>
+  <script src="./js/text-reveal.js"></script>
+</body>
+
 </html>
