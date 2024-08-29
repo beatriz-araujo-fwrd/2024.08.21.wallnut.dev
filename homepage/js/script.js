@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         timelineTextContainers = document.querySelectorAll('.timeline-text');
         timelineTextTotalContainers = timelineTextContainers.length;
 
-        
+
 
         // console.log("----------------");
         // console.log("updating scroll element values");
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }).to(cardContainer, {
         x: -amountToScroll,
-        onStart: ()=> {
+        onStart: () => {
             console.log("THIS " + cardContainer.offsetWidth);
         },
         duration: 3
@@ -77,39 +77,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let animStart = document.querySelector(".timeline-container").offsetWidth / hTotalContainers;
 
-        gsap.to(container.querySelectorAll(".word"), {
-            opacity: 1,
-            y: "0%",
-            duration: .4,
-            delay: .25,
-            ease: "power3.out",
-            stagger: 0.1,
-            scrollTrigger: {
-                invalidateOnRefresh: true,
-                trigger: container,
-                start: 'top+=' + animStart * index + 'px 10%',
-                end: '+=' + animStart + 'px',
-                toggleActions: 'play reverse restart reverse',
-                markers: false,
-                overwrite: true,
-                // onLeave: ()=> {
-                //     gsap.to(container.querySelectorAll(".word"), {
-                //         opacity: 0,
-                //         y: "-50%",
-                //         duration: .25,
-                //         ease: "power3.out",
-                //         stagger: 0.05
-                //     });
-                // },
-                // onEnterBack: ()=> {
-                //     gsap.to(container.querySelectorAll(".word"), {
-                //         opacity: 0,
-                //         y: "-50%",
-                //         duration: .25,
-                //         ease: "power3.out",
-                //         stagger: 0.05
-                //     });
-                // }
+        ScrollTrigger.create({
+            invalidateOnRefresh: true,
+            trigger: container,
+            start: 'top+=' + animStart * index + 'px 0%',
+            end: '+=' + animStart + 'px',
+            toggleActions: 'play none none none',
+            markers: true,
+            onEnter: () => {
+                gsap.to(container.querySelectorAll(".word"), {
+                    opacity: 1,
+                    y: "0%",
+                    duration: .25,
+                    // delay: .25,
+                    ease: "power3.out",
+                    stagger: 0.05,
+                });
+            },
+            onLeave: () => {
+                gsap.to(container.querySelectorAll(".word"), {
+                    opacity: 0,
+                    y: "-50%",
+                    duration: .25,
+                    ease: "power3.out",
+                    stagger: 0.05
+                });
+            },
+            onEnterBack: () => {
+                gsap.to(container.querySelectorAll(".word"), {
+                    opacity: 1,
+                    y: "0%",
+                    duration: .25,
+                    // delay: .25,
+                    ease: "power3.out",
+                    stagger: 0.05
+                });
+            },
+            onLeaveBack: () => {
+                gsap.to(container.querySelectorAll(".word"), {
+                    opacity: 0,
+                    y: "-50%",
+                    duration: .25,
+                    ease: "power3.out",
+                    stagger: 0.05
+                });
             }
         });
     });

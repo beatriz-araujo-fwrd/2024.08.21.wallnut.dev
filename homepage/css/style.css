@@ -204,7 +204,7 @@ section {
 }
 
 .hero-row:nth-child(1) .hero-row-background-container img {
-    top: 0;
+    top: -2.5%;
 }
 
 .hero-row:nth-child(2) .hero-row-background-container img {
