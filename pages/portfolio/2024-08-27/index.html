@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Portfolio</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/swiper.css">
+  <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+  <section class="section-portfolio">
+    <div class="container">
+      <div class="heading-container divider">
+        <div class="svg-ball-container">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="6" cy="7" r="6" fill="#FDC41F" />
+          </svg>
+        </div>
+        <h2>Nailed projects</h2>
+      </div>
+
+      <div class="swiper-container">
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img src="./media/slider_img.png">
+            </div>
+            <div class="swiper-slide">
+
+              <img src="./media/slider_img.png">
+            </div>
+            <div class="swiper-slide">
+              <img src="./media/slider_img.png">
+            </div>
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+
+      <div class="swiper-text-overlay-container">
+        <div class="swiper-text-overlay-wrapper show">
+          <div>
+            <span>Casa da Portela</span>
+          </div>
+          <div>
+            <span>Residencial</span>
+          </div>
+          <div>
+            <span>Alqueva</span>
+          </div>
+          <div>
+            <span>2024</span>
+          </div>
+        </div>
+        <div class="swiper-text-overlay-wrapper">
+          <div>
+            <span>Another Text</span>
+          </div>
+          <div>
+            <span>This Time</span>
+          </div>
+          <div>
+            <span>Shorter</span>
+          </div>
+        </div>
+        <div class="swiper-text-overlay-wrapper">
+          <div>
+            <span>And</span>
+          </div>
+          <div>
+            <span>One</span>
+          </div>
+          <div>
+            <span>More</span>
+          </div>
+          <div>
+            <span>Time</span>
+          </div>
+        </div>
+      </div>
+
+      <button>See all projects
+        <div class="button-icon-container">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="20" fill="#E2F0FB" fill-opacity="0.16" />
+            <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#E2F0FB" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <!-- Gsap CDN import -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+
+  <!-- Swiper CDN import -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="./js/script.js"></script>
+  <script src="./js/swiper.js"></script>
+</body>
+
+</html>

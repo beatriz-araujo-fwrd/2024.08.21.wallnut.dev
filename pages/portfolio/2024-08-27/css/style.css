@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+
+:root {
+    --img-container-gap: 5rem;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    letter-spacing: -.05rem;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+p {
+    font-weight: 400;
+    font-size: clamp(12px, 1rem, 14px);
+}
+
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    padding: 10rem 2rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px black solid;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+}
+
+/* HEADING Containers */
+.heading-container {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+}
+
+.h2-container-list>div {
+    width: 100%;
+    max-width: 45vw;
+}
+
+.desc-container-list {
+    width: 100%;
+    max-width: 350px;
+}
+
+.desc-container {
+    font-size: 1.1rem;
+}
+
+.h2-container-list .line,
+.timeline-text-container-list .line,
+.desc-container-list .line {
+    overflow-y: clip;
+    line-height: 110%;
+}
+
+.text-reveal {
+    position: absolute;
+    overflow: clip;
+}
+
+.text-reveal .word {
+    /* display: none;
+    visibility: hidden; */
+    transform: translate(0, 50%);
+    opacity: 0;
+}
+
+/* IMG Containers */
+.img-row-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    overflow: clip;
+}
+
+.img-row-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 4rem;
+    background-color: aliceblue;
+    width: auto;
+    display: flex;
+    flex-flow: row;
+    gap: var(--img-container-gap);
+    overflow: clip;
+}
+
+.img-container {
+    width: 45vw;
+}
+
+.img-container:nth-child(1) {
+    margin-left: 2rem;
+}
+
+.img-container:last-child {
+    margin-right: 2rem;
+}
+
+.img-container img {
+    width: 100%;
+}
+
+.svg-ball-container {
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider::after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #3F4950;
+}
+
+/* PORTFOLIO Section */
+.section-portfolio {
+    background-color: #202A30;
+    color: white;
+    padding-top: 5.625rem;
+    padding-bottom: 3.125rem;
+}
+
+.section-portfolio .container {
+    position: relative;
+    gap: 3.125rem;
+}
+
+.section-portfolio .heading-container {
+    justify-content: start;
+    align-items: center;
+}
+
+.section-portfolio .heading-container.divider::after {
+    margin-left: 16px;
+}
+
+.section-portfolio h2 {
+    font-size: 1rem;
+    text-wrap: nowrap;
+}
+
+.section-portfolio button {
+    background-color: transparent;
+    border: 1px #3F4950 solid;
+    border-radius: 42px;
+    padding: 0.625rem;
+    padding-left: 1.5rem;
+    line-height: 100%;
+    font-size: 1rem;
+    color: white;
+    align-self: center;
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* TIMELINE Container */
+.timeline-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    padding: 0 2rem;
+    z-index: -1;
+}
+
+.timeline-el {
+    width: 1px;
+    height: 100%;
+    background-color: #DBDDDE;
+}
+
+.timeline-text-container {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    gap: 8px;
+    left: -5px;
+    top: 5rem;
+}
+
+.timeline-text-container-list {
+    position: relative;
+    margin-top: -2px;
+    height: 1.2rem;
+    overflow-y: clip;
+}
+
+.timeline-text {
+    position: absolute;
+    text-wrap: nowrap;
+    opacity: 0;
+    transform: translate(0, 100%);
+    font-weight: 800;
+}
+
+.timeline-text-container.reverse {
+    flex-flow: row-reverse;
+    left: unset;
+    right: -5px;
+}
+
+.timeline-text-container.reverse .timeline-text {
+    right: 0;
+}
