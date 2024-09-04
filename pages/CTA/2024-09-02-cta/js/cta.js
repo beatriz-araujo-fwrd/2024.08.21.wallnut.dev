@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let charging = false;
     let hovering = false;
+    let charged = false;
 
     ctaAnim.defaults({
         overwrite: true
@@ -12,12 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ctaButton.addEventListener("mouseover", function () {
 
-        if (!hovering) {
-            hovering = true;
-            ctaCover.classList.add("hovering");
-
-            ctaAnim.to(ctaCover, {
-                width: "20%",
+        if (!hovering && !charging && !charged) {
+            gsap.to(ctaCover, {
+                width: "20vw",
+                onStart: () => {
+                    hovering = true;
+                    ctaCover.classList.add("hovering");
+                },
                 duration: 1.5,
                 ease: "power2.out"
             });
@@ -26,20 +28,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     ctaButton.addEventListener("mousedown", function () {
-        if (!charging) {
-            ctaCover.classList.add("charging");
+        if (!charging && !charged) {
 
-            ctaAnim.timeline().to(ctaCover, {
-                onStart: ()=> {
+            gsap.timeline({
+                onEnter: () => {
                     charging = true;
+                    ctaCover.classList.add("charging");
                 },
-                width: "100%",
+                onComplete: ()=> {
+                    charged = true;
+                    ctaCover.classList.add("full");
+                }
+            }).to(ctaCover, {
+                width: "100vw",
+                overwrite: true,
                 duration: 2,
                 ease: "power3.in"
             }).to(ctaButton.querySelectorAll("span"), {
                 y: "-300%",
-                stagger: .25,
-                duration: 2,
+                stagger: .2,
+                duration: 1.4,
                 ease: "power2.in"
             }, "<");
         }
@@ -49,27 +57,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     ctaButton.addEventListener("mouseup", function () {
-        if (charging) {
-            charging = false;
+        if (!charged) {
+            if (charging && hovering) {
+                charging = false;
 
-            ctaCover.classList.remove("charging");
+                ctaCover.classList.remove("charging");
 
-            ctaAnim.to(ctaCover, {
-                width: "20%",
-                duration: 1.2,
-                ease: "power2.out"
-            });
-        } if (!hovering) {
-            charging = false;
-            hovering = false;
+                ctaAnim.to(ctaCover, {
+                    width: "20vw",
+                    duration: 1.2,
+                    ease: "power2.out"
+                });
+            } else if (!hovering && !charging) {
+                charging = false;
+                hovering = false;
 
-            ctaCover.classList.remove("charging");
-            ctaCover.classList.remove("hovering");
+                ctaCover.classList.remove("charging");
+                ctaCover.classList.remove("hovering");
 
-            ctaAnim.to(ctaCover, {
-                width: "0%",
-                duration: 3,
-                ease: "power2.out"
+                ctaAnim.to(ctaCover, {
+                    width: "0vw",
+                    duration: 3,
+                    ease: "power2.out"
+                });
+            }
+
+            ctaAnim.to(ctaButton.querySelectorAll("span"), {
+                y: "0%",
+                duration: .5,
+                ease: "power2.in"
             });
         }
 
@@ -82,10 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ctaCover.classList.remove("hovering");
         ctaCover.classList.remove("charging");
 
-        ctaAnim.to(ctaCover, {
-            width: "0%",
-            duration: 2,
-        });
+        if (!charged) {
+            ctaAnim.to(ctaCover, {
+                width: "0%",
+                duration: 2,
+            });
+        }
 
     });
 });

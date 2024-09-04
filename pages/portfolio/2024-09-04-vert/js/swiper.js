@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const swiper = new Swiper('.swiper', {
         // Optional parameters
-        direction: 'horizontal',
+        direction: 'vertical',
         loop: true,
 
         // If we need pagination

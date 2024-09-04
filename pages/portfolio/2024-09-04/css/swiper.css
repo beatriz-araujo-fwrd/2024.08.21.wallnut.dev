@@ -73,3 +73,39 @@
     width: 100%;
     opacity: 1;
 }
+
+.swiper-slide {
+    position: relative;
+    transform: scale(1);
+    transition: scale 1s ease;
+}
+
+.swiper-slide .swiper_img_container {
+    position: relative;
+    overflow: clip;
+    opacity: 1;
+    transition: opacity 2s ease;
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+    transform: scale(.5) !important;
+}
+
+.swiper-slide-prev img,
+.swiper-slide-next img {
+    opacity: 0;
+}
+
+.swiper_img_container_inner {
+    position: absolute;
+    background-color: #202A30;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    transition: height .5s ease;
+}
+
+.swiper-slide-active .swiper_img_container_inner {
+    height: 0;
+}
