@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let charging = false;
     let hovering = false;
-    let charged = false;
+    let complete = false;
 
     ctaAnim.defaults({
         overwrite: true
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ctaButton.addEventListener("mouseover", function () {
 
-        if (!hovering && !charging && !charged) {
+        if (!hovering && !charging && !complete) {
             gsap.to(ctaCover, {
                 width: "20vw",
                 onStart: () => {
@@ -28,15 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     ctaButton.addEventListener("mousedown", function () {
-        if (!charging && !charged) {
+        if (!charging && !complete) {
 
             gsap.timeline({
                 onEnter: () => {
                     charging = true;
                     ctaCover.classList.add("charging");
                 },
-                onComplete: ()=> {
-                    charged = true;
+                onComplete: () => {
+                    complete = true;
                     ctaCover.classList.add("full");
                 }
             }).to(ctaCover, {
@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 overwrite: true,
                 duration: 2,
                 ease: "power3.in"
-            }).to(ctaButton.querySelectorAll("span"), {
-                y: "-300%",
+            }).to(ctaButton.querySelectorAll(".cta_btn_text"), {
+                y: "-360%",
                 stagger: .2,
                 duration: 1.4,
                 ease: "power2.in"
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     ctaButton.addEventListener("mouseup", function () {
-        if (!charged) {
+        if (!complete) {
             if (charging && hovering) {
                 charging = false;
 
@@ -82,11 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
 
-            ctaAnim.to(ctaButton.querySelectorAll("span"), {
+            ctaAnim.to(ctaButton.querySelectorAll(".cta_btn_text"), {
                 y: "0%",
                 duration: .5,
                 ease: "power2.in"
-            });
+            })
         }
 
     });
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ctaCover.classList.remove("hovering");
         ctaCover.classList.remove("charging");
 
-        if (!charged) {
+        if (!complete) {
             ctaAnim.to(ctaCover, {
                 width: "0%",
                 duration: 2,

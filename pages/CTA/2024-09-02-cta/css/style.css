@@ -216,6 +216,7 @@ section {
 .cta_text_list_container {
     display: flex;
     flex-flow: column;
+    gap: .2rem;
     max-height: 1rem;
     line-height: 1rem;
     overflow: clip;
